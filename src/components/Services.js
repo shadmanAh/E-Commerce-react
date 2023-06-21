@@ -3,7 +3,36 @@ import styled from 'styled-components'
 import { services } from '../utils/constants'
 
 const Services = () => {
-  return <h4>services </h4>
+  return (
+    <Wrapper>
+      <div className="section-center">
+        <article className="header">
+          <h3>
+            custom furniture <br />
+            built only for you
+          </h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+            minima laborum, saepe nemo quod sint exercitationem, natus dolorem
+            fugiat repellat, ut rerum recusandae molestias labore! Enim a
+            quibusdam dolore facere.
+          </p>
+          <div className="services-center">
+            {services.map((service) => {
+              const { id, icon, title, text } = service
+              return (
+                <article key={id} className="service">
+                  <span className="icon">{icon}</span>
+                  <h4>{title}</h4>
+                  <p>{text}</p>
+                </article>
+              )
+            })}
+          </div>
+        </article>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
@@ -51,12 +80,7 @@ const Wrapper = styled.section`
       font-size: 2rem;
     }
   }
-  @media (min-width: 992px) {
-    .header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+
   @media (min-width: 576px) {
     .services-center {
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
