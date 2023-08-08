@@ -6,8 +6,7 @@ import { CartContent, PageHero } from '../components'
 
 const CartPage = () => {
   const { cart } = useCartContext()
-  // most changing (cart.length < 1)
-  if (cart.length > 1) {
+  if (cart.length < 1) {
     return (
       <Wrapper className="page-100">
         <div className="empty">
